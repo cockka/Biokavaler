@@ -11,23 +11,23 @@
       padding: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
       background: url('https://i.postimg.cc/nV45FPvV/2147483648-219957.gif') center center/cover no-repeat fixed;
-      background-color: #f8f5ee;
+      background-color: #222;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
     }
     .container {
-      background: rgba(255,255,255,0.92);
+      background: transparent;
       border-radius: 18px;
       margin-top: 40px;
       padding: 32px 20px 24px 20px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.12);
       max-width: 350px;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: none;
     }
     .avatar {
       width: 100px;
@@ -37,17 +37,40 @@
       margin-bottom: 10px;
       border: 3px solid #d1d1d1;
       background: #fff;
+      opacity: 0;
+      transform: translateY(-40px);
+      animation: avatarIn 0.8s cubic-bezier(.4,1.4,.6,1) 0.2s forwards;
+    }
+    @keyframes avatarIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     .name {
       font-size: 1.2em;
       font-weight: 600;
       margin-bottom: 18px;
-      color: #3a3a3a;
+      color: #222;
       letter-spacing: 1px;
+      text-align: center;
+      opacity: 0;
+      animation: nameIn 0.7s cubic-bezier(.4,1.4,.6,1) 0.7s forwards;
+    }
+    @keyframes nameIn {
+      to {
+        opacity: 1;
+      }
+    }
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .link-btn {
       width: 100%;
-      background: #8b857b;
+      background: rgba(0,0,0,0.45);
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -61,18 +84,50 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.09);
       cursor: pointer;
       display: block;
+      opacity: 0;
     }
     .link-btn:hover {
-      background: #a59f96;
-      color: #222;
+      background: rgba(0,0,0,0.65);
+      color: #ffd700;
     }
-    .footer {
-      margin-top: 18px;
-      color: #bdbdbd;
-      font-size: 0.95em;
-      text-align: center;
-      letter-spacing: 0.5px;
-      display: none; /* скрыто, как ты и хотел */
+    /* Анимации для кнопок: чередуем слева/справа */
+    .link-btn:nth-child(1) {
+      animation: slideInLeft 0.7s cubic-bezier(.4,1.4,.6,1) 1.0s forwards;
+    }
+    .link-btn:nth-child(2) {
+      animation: slideInRight 0.7s cubic-bezier(.4,1.4,.6,1) 1.2s forwards;
+    }
+    .link-btn:nth-child(3) {
+      animation: slideInLeft 0.7s cubic-bezier(.4,1.4,.6,1) 1.4s forwards;
+    }
+    .link-btn:nth-child(4) {
+      animation: slideInRight 0.7s cubic-bezier(.4,1.4,.6,1) 1.6s forwards;
+    }
+    .link-btn:nth-child(5) {
+      animation: slideInLeft 0.7s cubic-bezier(.4,1.4,.6,1) 1.8s forwards;
+    }
+    .link-btn:nth-child(6) {
+      animation: slideInRight 0.7s cubic-bezier(.4,1.4,.6,1) 2.0s forwards;
+    }
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
     @media (max-width: 480px) {
       .container {
@@ -91,12 +146,14 @@
   <div class="container">
     <img src="https://i.postimg.cc/pVhYWhz2/7d444edf746b98afb1629ca51700591e.jpg" alt="Avatar" class="avatar">
     <div class="name">KAVALER</div>
-    <a href="https://t.me/Cockkatg" class="link-btn" target="_blank">ТЕЛЕГРАМ КАНАЛ</a>
-    <a href="https://youtu.be/wpJWL19ROEg?si=hqN3ObrRTYRcMnT6" class="link-btn" target="_blank">YOUTUBE CHENNEL</a>
-    <a href="https://t.me/p3r3h0dn1ck" class="link-btn" target="_blank">BIO TG</a>
-    <a href="https://t.me/Cockka" class="link-btn" target="_blank">MY TG</a>
-    <a href="http://tiktok.com/@kavaler_ebet" class="link-btn" target="_blank">TIK TOK</a>
-    <a href="https://www.donationalerts.com/r/kavaler_cockka" class="link-btn" target="_blank">ДОНАТИК</a>
+    <div class="links">
+      <a href="https://t.me/Cockkatg" class="link-btn" target="_blank">ТЕЛЕГРАМ КАНАЛ</a>
+      <a href="https://youtube.com/@kavaler_ebet?si=w-oAgIe9cqi6CGcx" class="link-btn" target="_blank">YOUTUBE CHANNEL</a>
+      <a href="https://t.me/p3r3h0dn1ck" class="link-btn" target="_blank">BIO TG</a>
+      <a href="https://t.me/Cockka" class="link-btn" target="_blank">MY TG</a>
+      <a href="http://tiktok.com/@kavaler_ebet" class="link-btn" target="_blank">TIK TOK</a>
+      <a href="https://www.donationalerts.com/r/kavaler_cockka" class="link-btn" target="_blank">ДОНАТИК</a>
+    </div>
   </div>
 </body>
 </html>
